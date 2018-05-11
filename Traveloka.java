@@ -5,6 +5,25 @@ public class Traveloka {
         Scanner sc = new Scanner(System.in);
         TravelokaTerminal traveloka;
         System.out.println("===Welcome To Traveloka===");
+        System.out.print("Username (user): ");
+        String username = sc.nextLine();
+        System.out.print("Password (user): ");
+        String password = sc.nextLine();
+        traveloka = new TravelokaTerminal(username, password);
+        if (traveloka.isAccountValid()) {
+            String nameOfUser = traveloka.getRealName();
+            System.out.println("===Welcome To Traveloka===");
+            System.out.println("Hi " + nameOfUser);
+            System.out.println("==========================");
+            menu(sc, traveloka);
+        } else {
+            System.out.println("Login Failed");
+            System.out.println("This credentials doesn't match our records");
+        }
+        System.out.println("Thank you for using Traveloka :)");
+    }
+
+    private static void menu(Scanner sc, TravelokaTerminal traveloka) {
         System.out.println("1. Hotel Booking");
         System.out.println("2. Flight Booking");
         System.out.print("Choose Menu : ");
@@ -26,7 +45,6 @@ public class Traveloka {
                 }
             }
         } else if (menu == 2) {
-            System.out.println("WIP for The Flight :)");
             System.out.println("===Flight Booking==");
             System.out.print("Your name : ");
             String name = sc.nextLine();
@@ -46,7 +64,5 @@ public class Traveloka {
         } else {
             System.out.println("Command Not found");
         }
-
-        System.out.println("Thank you for using Traveloka :)");
     }
 }

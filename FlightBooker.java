@@ -22,7 +22,7 @@ public class FlightBooker {
         System.out.println("Number of Passager(s) : " + this.passg);
         System.out.println("Flight Name : " + getFligth());
         System.out.println("======================================================");
-        System.out.println("Yay, The " + getFligth() + " Hotel has been Booked");
+        System.out.println("Yay, The " + getFligth() + " Flight has been Booked");
         System.out.println("======================================================");
     }
 

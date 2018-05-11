@@ -1,12 +1,47 @@
 import java.util.Scanner;
 
 public class TravelokaTerminal {
-    private String name, city, from, to;
+    private String name, city, from, to, username, password;
     private int duration, bookingType, passg;
 
     HotelBooker hotel;
     FlightBooker flight;
+    Account account;
     Scanner sc = new Scanner(System.in);
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public TravelokaTerminal(String username, String password) {
+        setUsername(username);
+        setPassword(password);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public boolean isAccountValid() {
+        account = new Account();
+        if (account.getUsername().equalsIgnoreCase(getUsername()) && account.getPassword().equalsIgnoreCase(getPassword())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String getRealName() {
+        return account.getRealName();
+    }
 
     public TravelokaTerminal(String name, String city, int duration) {
         setName(name);
