@@ -1,11 +1,12 @@
 public class FlightBooker {
 
-    private String name, from, to, fligth = "Garuda Indonesia";
-    private int passg;
+    private String name, from, to, fligth[] = {"Garuda Indonesia", "Lion", "Air Asia"};
+    private int passg, flightChosen;
 
     public FlightBooker(String name, String from, String to, int passg) {
         this.name = name;
         this.from = from;
+        this.to = to;
         this.passg = passg;
     }
 
@@ -20,9 +21,9 @@ public class FlightBooker {
         System.out.println("From : " + this.from);
         System.out.println("To : " + this.to);
         System.out.println("Number of Passager(s) : " + this.passg);
-        System.out.println("Flight Name : " + getFligth());
+        System.out.println("Flight Name : " + getFlightName());
         System.out.println("======================================================");
-        System.out.println("Yay, The " + getFligth() + " Flight has been Booked");
+        System.out.println("Yay, The " + getFlightName() + " Flight has been Booked");
         System.out.println("======================================================");
     }
 
@@ -30,8 +31,40 @@ public class FlightBooker {
         System.out.println("=========Flight Result=========");
     }
 
+    public void setFlightChosen(int flightChosen) {
+        this.flightChosen = flightChosen;
+    }
+
+    public int getFlightChosen() {
+        return flightChosen;
+    }
+
+    private String getFlightName() {
+        int flightID = getFlightChosen() - 1;
+        String flightName;
+        switch (flightID) {
+            case 0:
+                flightName = fligth[flightID];
+                break;
+            case 1:
+                flightName = fligth[flightID];
+                break;
+            case 2:
+                flightName = fligth[flightID];
+                break;
+            default:
+                flightName = "Error";
+                break;
+        }
+        return flightName;
+    }
+
     public void getFlightResultFound() {
-        System.out.println("The Flight name is " + getFligth());
+        int i = 1;
+        for (String flight : getFligth()) {
+            System.out.println(i + ". " + flight);
+            i++;
+        }
         System.out.println("=====================================");
     }
 
@@ -40,7 +73,7 @@ public class FlightBooker {
         System.out.println("=====================================");
     }
 
-    public String getFligth() {
+    private String[] getFligth() {
         return fligth;
     }
 }

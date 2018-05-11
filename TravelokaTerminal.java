@@ -110,13 +110,31 @@ public class TravelokaTerminal {
     }
 
     public boolean decision() {
-        System.out.print("Want to booking (y/n)? ");
+        System.out.print("Want to booking that (y/n)? ");
         String choice = sc.nextLine();
         if (choice.equalsIgnoreCase("y")) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public void flightMenu() {
+        int chosen = 0;
+        try {
+            System.out.print("Flight u want : ");
+            chosen = sc.nextInt();
+            sc.nextLine();
+        } catch (Exception e) {
+            System.out.println("Input must be number");
+            flightMenu();
+        }
+        flight.setFlightChosen(chosen);
+    }
+
+    public int flightChosen() {
+
+        return 1;
     }
 
     private void searching() {
